@@ -1,0 +1,36 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #F5F5F5;
+  width: 380px;
+  height: 435px;
+  padding: 24px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.image {
+  width: 200px;
+  height: auto;
+}
+
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.link {
+  color: #607CE6;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
