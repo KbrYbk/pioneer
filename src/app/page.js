@@ -5,7 +5,10 @@ import ProductCard from '/components/ProductCard';
 import prisma from '/lib/prisma';
 
 export default async function Home() {
-  const cardList = await prisma.Card.findMany();
+  const categories = await prisma.Category.findMany({
+    include: { products: true }, // Получаем категории и связанные продукты
+  });
+
   return (
     <div className="container">
       <Header />
@@ -36,54 +39,20 @@ export default async function Home() {
         <h1>Продукция</h1>
         <div>
           <div className={styles.productGrid}>
-            {
-              cardList.map((item) => {
-                return (
-                  <ProductCard
-                    key={item.id}
-                    title={item.title}
-                    image={item.img}
-                    link="/product/"
-                  />
-                );
-              })
-            }
-
-            {/* <ProductCard
-              image="/product1.png"
-              title="Сигнализатор уровня"
-              link="/product/1"
-            />
-            <ProductCard
-              image="/product2.png"
-              title="Датчики давления"
-              link="/product/2"
-            />
-            <ProductCard
-              image="/product3.png"
-              title="ПИД-регуляторы"
-              link="/product/3"
-            />
-            <ProductCard
-              image="/product4.png"
-              title="Калибратор давления"
-              link="/product/4"
-            />
-            <ProductCard
-              image="/product5.png"
-              title="Корректор расхода газа"
-              link="/product/5"
-            />
-            <ProductCard
-              image="/product6.png"
-              title="Манометры"
-              link="/product/6"
-            /> */}
+          {categories.map((category) => (
+              <ProductCard
+                key={category.id}
+                title={category.name} // Название категории
+                image={category.img}
+                link={`/category/${category.id}`} // Ссылка на категорию
+              />
+            ))}
           </div>
         </div>
         <h1>Представительства</h1>
         <Image src="/map.png" alt="Карта" width={1180} height={715} layout="responsive" />
-
+        <h1>Новости</h1>
+        
       </main>
     </div>
   );

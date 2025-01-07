@@ -1,20 +1,55 @@
 .header {
     padding: 32px 0px;
-}
-
-.flex {
+  }
+  
+  .flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.logo {
+    margin: 0 0 32px 0;
+  }
+  
+  .logo {
     font-size: 24px;
     font-weight: bold;
-}
-
-.contact {
+  }
+  
+  .contact {
     text-align: right;
     display: flex;
     gap: 20px;
-}
+  }
+  
+  .navbar {
+    display: flex;
+    gap: 20px; /* Отступ между элементами навигации */
+    margin: 16px 0 0 0;
+  }
+  
+  .navbar ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar li {
+    margin: 0 44px 0 0;
+    color: black;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+  }
+  
+  .headerRight {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .call-me {
+    font-weight: bold;
+    color: #607CE6;
+    cursor: pointer;
+  }
+  
